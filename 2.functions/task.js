@@ -1,19 +1,17 @@
 function getArrayParams(...arr) {
-  let min=arr[0],
-  max=arr[0],
-  sum=0,
-  s=0,
-  avg=0;
+  let min=arr[0];
+  let max=arr[0];
+  let sum=0;
+  let avg=0;
 
-  for(i=0;i<arr.length;i++){
+  for(let i=0;i<arr.length;i++){
     if(arr[i]>max){
       max=arr[i];
     }
     if(arr[i]<min){
       min=arr[i];
     }
-    s=s+arr[i];
-    sum=s;
+    sum=sum+arr[i];
   }
   avg=sum/arr.length;
   return { min: min, max: max, avg: Number(avg.toFixed(2)) };
@@ -25,7 +23,7 @@ getArrayParams(5)  // { min: 5, max: 5, avg: 5 }
 
 function summElementsWorker(...arr) {
   let sum=0;
-  for(i=0;i<arr.length;i++){
+  for(let i=0;i<arr.length;i++){
     sum=sum+arr[i];
   }
   return sum;
@@ -38,7 +36,7 @@ console.log(summElementsWorker(10, 10, 11, 20, 10)); // 61
 function differenceMaxMinWorker(...arr) {
   let max=arr[0];
   let min=arr[0];
-  for(i=0;i<arr.length;i++){
+  for(let i=0;i<arr.length;i++){
     if(arr[i]>max){
       max=arr[i];
     }
@@ -60,17 +58,17 @@ function differenceEvenOddWorker(...arr) {
   if (arr.length===0){
     return 0;
   }
-  let SumEvenElement=0;
+  let sumEvenElement=0;
   let sumOddElement=0;
 
-  for(i=0;i<arr.length;i++){
+  for(let i=0;i<arr.length;i++){
     if((arr[i]%2)===0){
-      SumEvenElement=SumEvenElement+arr[i];
+      sumEvenElement=sumEvenElement+arr[i];
     }else{
       sumOddElement=sumOddElement+arr[i];
     }
   }
-  return (SumEvenElement-sumOddElement);
+  return (sumEvenElement-sumOddElement);
 }
 
 console.log(differenceEvenOddWorker(94, 51, 57, 41, 47, 66, 58, 10, 38, 17)); // 266 - 213 => 53
@@ -81,16 +79,16 @@ function averageEvenElementsWorker(...arr) {
   if (arr.length===0){
     return 0;
   }
-  let SumEvenElement=0;
+  let sumEvenElement=0;
   let countEvenElement=0;
-  for(i=0;i<arr.length;i++){
+  for(let i=0;i<arr.length;i++){
     if((arr[i]%2)===0){
-      SumEvenElement=SumEvenElement+arr[i];
+      sumEvenElement=sumEvenElement+arr[i];
       countEvenElement+=1;
-      console.log(SumEvenElement,countEvenElement)
+      console.log(sumEvenElement,countEvenElement)
   }
 }
-  return (SumEvenElement/countEvenElement);
+  return (sumEvenElement/countEvenElement);
 }
 
 // averageEvenElementsWorker
