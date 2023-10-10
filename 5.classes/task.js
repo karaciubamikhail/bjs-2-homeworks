@@ -71,20 +71,17 @@ class Library{
             return;
         }
     }
-    findBookBy(type,value){
-        for(let key of this.books){
-            if(key[type]===value){
-                return key;
-            }
-        }
-        return null;
-    }
-    giveBookByName(bookName){
-        let reqBook = this.findBookBy('name', bookName);
-        let indexOfBook = this.books.indexOf(reqBook);
-          if (indexOfBook === -1) return null;
-          return this.books.splice(indexOfBook, 1)[0];
-    }
+findBookBy(type, value) {
+ const findResult = this.books.find((item) => item[type] === value);
+ return findResult || null;
+}
+
+giveBookByName(bookName) {
+  const book = this.findBookBy("name", bookName);
+  if (!book) return null;
+  this.books = this.books.filter((item) => item.name !== bookName);
+  return book;
+}
 }
 class Student{
     constructor(name,gender,age){
