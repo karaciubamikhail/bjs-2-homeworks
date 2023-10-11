@@ -42,7 +42,7 @@
         });
     }
     clearAlarms(){
-        stop();
+        this.stop();
         this.alarmCollection=[];
     }
  }
